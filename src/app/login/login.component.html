@@ -1,0 +1,35 @@
+<body>
+  <div class="row p-5 d-flex justify-content-around">
+    <div class="row col-4 p-5">
+      <h1><strong>Teste</strong></h1>
+      <p><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, adipisci in eius at minima consectetur!</strong></p>
+    </div>
+    <section class="row col-4" #section>
+      <div class="mt-3 mb-3">
+        <div class="row col-12 mx-auto">
+          <mat-form-field appearance="outline">
+            <mat-label>Email ou Telefone</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div class="row col-12 mx-auto">
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div class="row col-12 mx-auto text-center">
+          <div class="row col-12 mx-auto">
+            <button mat-raised-button color="primary">Entrar</button>
+          </div>
+        </div>
+      </div>
+        <mat-divider></mat-divider>
+        <div class="mt-3 mb-4 d-flex justify-content-center">
+          <div class="row col-8">
+            <button (click)= "openDialog()" mat-flat-button color="primary">Criar nova conta</button>
+          </div>
+        </div>
+    </section>
+  </div>
+</body>

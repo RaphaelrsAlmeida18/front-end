@@ -1,60 +1,69 @@
-<body>
-    <div class="row col-3 mx-auto">
-      <section class="mt-5 mb-5">
-        <form  [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-          <div class="mt-3">
-            <h1><strong>Cadastre-se</strong></h1>
-            <mat-divider></mat-divider>
-          </div>
+<form  [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-          <div class="row col-12 mx-auto">
-            <mat-form-field appearance="outline">
-              <mat-label>Nome</mat-label>
-              <input matInput formControlName="nome">
-            </mat-form-field>
-          </div>
+  <div class="mt-1">
+    <h1 mat-dialog-title><strong>Cadastre-se</strong></h1>
+    <mat-divider></mat-divider>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-dialog-content>
 
-          <div class="row col-12 mx-auto">
-            <mat-form-field appearance="outline">
-              <mat-label>Sobrenome</mat-label>
-              <input matInput formControlName="sobrenome">
-            </mat-form-field>
-          </div>
+    <div class="row col-12 mx-auto mt-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="formulario.controls['nome'].errors">
+          Nome inválido!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-          <div class="row col-12 mx-auto">
-            <mat-form-field appearance="outline">
-              <mat-label>CPF</mat-label>
-              <input matInput formControlName="cpf">
-            </mat-form-field>
-          </div>
+    <div class="row col-12 mx-auto">
+      <mat-form-field appearance="outline">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput formControlName="sobrenome">
+        <mat-error *ngIf="formulario.controls['sobrenome'].errors">
+          Sobrenome inválido!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-          <div class="row col-12 mx-auto">
-            <mat-form-field appearance="outline">
-              <mat-label>E-mail</mat-label>
-              <input matInput formControlName="email">
-            </mat-form-field>
-          </div>
+    <div class="row col-12 mx-auto">
+      <mat-form-field appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf">
+        <mat-error *ngIf="formulario.controls['cpf'].errors">
+          CPF inválido!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-          <div class="row col-12 mx-auto">
-            <mat-form-field appearance="outline">
-              <mat-label>Telefone</mat-label>
-              <input matInput formControlName="telefone">
-            </mat-form-field>
-          </div>
+    <div class="row col-12 mx-auto">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="formulario.controls['email'].errors">
+          E-mail inválido!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-          <mat-divider></mat-divider>
+    <div class="row col-12 mx-auto">
+      <mat-form-field appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="telefone">
+        <mat-error *ngIf="formulario.controls['telefone'].errors">
+          Telefone inválido!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-          <div class="row col-11 m-2">
-            <button mat-raised-button color="primary">Cadastrar</button>
-          </div>
-        </form>
-      </section>
+    <mat-divider></mat-divider>
 
-      <div class="mb-5">
-        <button mat-flat-button color="primary">
-          <a routerLink="/lista">Lista de cadastro</a>
-        </button>
+    <div mat-dialog-actions class="mt-3 mb-4 d-flex justify-content-center">
+      <div class="row col-11 mx-auto">
+        <button (click)="post" mat-raised-button color="primary">Entrar</button>
       </div>
     </div>
-</body>
+  </div>
+</form>

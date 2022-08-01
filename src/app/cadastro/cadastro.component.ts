@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Cadastro } from './cadastro';
+import { Cadastro } from '../modal/cadastro';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CadastroService } from '../service/cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -10,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CadastroComponent implements OnInit {
   formulario!: FormGroup;
 
-  constructor(private formularioCadastro: FormBuilder) { }
+  constructor(
+    private formularioCadastro: FormBuilder,
+    private service: CadastroService
+    ) { }
 
   ngOnInit(): void {
     this.creatForm(new (Cadastro));
@@ -24,11 +28,22 @@ export class CadastroComponent implements OnInit {
           email:      [cadastro.email,[Validators.required]],
           telefone:   [cadastro.telefone,[Validators.required]],
         });
+    this.formulario.reset(new Cadastro());
   }
 
   onSubmit(){
     console.log(this.formulario.value);
-    this.formulario.reset(new Cadastro());
+  }
+  post(){
+    return this.service.postCadastro(this.formulario.value).subscribe({
+      next: (res) => {
+        alert("Cadastrado com sucesso !!! :)");
+        this.formulario.reset();
+      },
+      error: (res) =>{
+        alert("Erro ao cadastrar !!! :(")
+      }
+    })
   }
 
 }
