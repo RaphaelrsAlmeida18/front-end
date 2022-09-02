@@ -22,11 +22,13 @@ export class CadastroComponent implements OnInit {
 
   creatForm(cadastro: Cadastro){
     this.formulario = this.formularioCadastro.group({
-          nome:       [cadastro.nome,[Validators.required]],
-          sobrenome:  [cadastro.sobrenome,[Validators.required]],
-          cpf:        [cadastro.cpf,[Validators.required]],
-          email:      [cadastro.email,[Validators.required]],
-          telefone:   [cadastro.telefone,[Validators.required]],
+          nome:          [cadastro.nome,[Validators.required]],
+          sobrenome:     [cadastro.sobrenome,[Validators.required]],
+          cpf:           [cadastro.cpf,[Validators.required]],
+          email:         [cadastro.email,[Validators.email]],
+          telefone:      [cadastro.telefone,[Validators.required]],
+          senha:         [cadastro.senha,[Validators.required]],
+          confirmaSenha: [cadastro.confirmaSenha,[Validators.required]]
         });
     this.formulario.reset(new Cadastro());
   }
@@ -34,7 +36,7 @@ export class CadastroComponent implements OnInit {
   onSubmit(){
     console.log(this.formulario.value);
   }
-  post(){
+  cadastar(){
     return this.service.postCadastro(this.formulario.value).subscribe({
       next: (res) => {
         alert("Cadastrado com sucesso !!! :)");

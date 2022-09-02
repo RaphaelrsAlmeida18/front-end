@@ -5,37 +5,48 @@
     <h1 mat-dialog-title><strong>Cadastre-se</strong></h1>
     <mat-divider></mat-divider>
   </div>
-  <mat-divider></mat-divider>
+
   <div mat-dialog-content>
-
     <div class="row col-12 mx-auto mt-2">
-      <mat-form-field appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome">
-        <mat-error *ngIf="formulario.controls['nome'].errors">
-          Nome inválido!
-        </mat-error>
-      </mat-form-field>
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome">
+          <mat-error *ngIf="formulario.controls['nome'].errors">
+            Nome inválido!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Sobrenome</mat-label>
+          <input matInput formControlName="sobrenome">
+          <mat-error *ngIf="formulario.controls['sobrenome'].errors">
+            Sobrenome inválido!
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="row col-12 mx-auto">
-      <mat-form-field appearance="outline">
-        <mat-label>Sobrenome</mat-label>
-        <input matInput formControlName="sobrenome">
-        <mat-error *ngIf="formulario.controls['sobrenome'].errors">
-          Sobrenome inválido!
-        </mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="row col-12 mx-auto">
-      <mat-form-field appearance="outline">
-        <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf">
-        <mat-error *ngIf="formulario.controls['cpf'].errors">
-          CPF inválido!
-        </mat-error>
-      </mat-form-field>
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>CPF</mat-label>
+          <input matInput formControlName="cpf">
+          <mat-error *ngIf="formulario.controls['cpf'].errors">
+            CPF inválido!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone">
+          <mat-error *ngIf="formulario.controls['telefone'].errors">
+            Telefone inválido!
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="row col-12 mx-auto">
@@ -50,10 +61,20 @@
 
     <div class="row col-12 mx-auto">
       <mat-form-field appearance="outline">
-        <mat-label>Telefone</mat-label>
-        <input matInput formControlName="telefone">
-        <mat-error *ngIf="formulario.controls['telefone'].errors">
-          Telefone inválido!
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha">
+        <mat-error *ngIf="formulario.controls['senha'].errors">
+          Senha inválida!
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row col-12 mx-auto">
+      <mat-form-field appearance="outline">
+        <mat-label>Confirma Senha</mat-label>
+        <input matInput formControlName="confirmaSenha">
+        <mat-error *ngIf="formulario.controls['confirmaSenha'].errors">
+          Senha inválido!
         </mat-error>
       </mat-form-field>
     </div>
@@ -62,7 +83,7 @@
 
     <div mat-dialog-actions class="mt-3 mb-4 d-flex justify-content-center">
       <div class="row col-11 mx-auto">
-        <button (click)="post" mat-raised-button color="primary">Entrar</button>
+        <button (click)="cadastar" mat-raised-button color="primary">Cadastre-se</button>
       </div>
     </div>
   </div>
